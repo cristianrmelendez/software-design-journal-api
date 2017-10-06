@@ -1,0 +1,66 @@
+
+
+
+
+
+<div class="container-fluid">
+  <h2>Home </h2>
+  
+  
+      <div class="jumbotron">
+  
+        <h2>Welcome to the course INSO4116 Software Design journal page </h2>
+  
+        <p> In this page every student will be posting every week what he learns in the class and in their assignments.</p>
+  
+  
+      </div>
+    <form>
+    <div class="panel-heading panel panel-default form-group">
+      <h3>Add a new entry</h3>
+  
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <label>Name of student:</label>
+        <select class="form-control">
+  
+        </select>
+  
+        <label>Journal entry:</label>
+        <textarea class="form-control" name="Text1" cols="40" rows="5"></textarea>
+  
+        <label>Password:</label>
+        <input type="password" class="form-control">
+        <br><br>
+  
+        <button class="btn btn-success" type="submit" >Submit</button>
+  
+      </div>
+    </div>
+    </div>
+    </form>
+  
+    <h3>Journal entries:</h3>
+  <div  *ngFor="let post of posts">
+  
+  
+      <div class="panel-heading panel panel-default">
+        <h3>{{ post.username }}
+        </h3>
+  
+  
+    <div class="panel panel-default">
+      <div class="panel-body">
+      <p>
+        {{post.body}}
+      </p>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  </div>
+  
+  
+  
+  
