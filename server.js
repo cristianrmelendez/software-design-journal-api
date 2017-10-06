@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var posts = require('./routes/posts');
 var users = require('./routes/users');
 
-var CONTACTS_COLLECTION = "contacts";
+
 
 var app = express();
 // Parsers
@@ -29,6 +29,10 @@ mongoose.connect(mongodbUri , {
 
   app.use('/api', posts);
   app.use('/api', users);
+
+  // Create link to Angular build directory
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 
 
   // Initialize the app.
