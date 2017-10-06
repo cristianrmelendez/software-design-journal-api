@@ -1,7 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
-var ObjectID = mongodb.ObjectID;
 var posts = require('./routes/posts');
 var users = require('./routes/users');
 
