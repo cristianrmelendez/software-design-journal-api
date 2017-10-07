@@ -28,6 +28,8 @@ userSchema.pre('save', function(next) {
 
 // Method to compare passwords in API (when user logs in)
 userSchema.methods.comparePassword = function(password) {
+	console.log("The password enter was: " + password );
+	console.log("The password enter was: " + this.password );
     return bcrypt.compareSync(password, this.password); // Returns true if password matches, false if doesn't
 };
 

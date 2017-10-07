@@ -56,6 +56,9 @@ router.post('/posts', function (req, res, next) {
             console.log("not found");
             res.status(403).json({success: false, message: "Not Found"});
         } else if (data) {
+			console.log("The data that came back is:");
+			console.log(data);
+			
             //compare password
             var validPassword = data.comparePassword(passwordProvided);
             //if password match
