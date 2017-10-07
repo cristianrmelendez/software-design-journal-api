@@ -27,7 +27,13 @@ mongoose.connect(mongodbUri , {
   // Save database object from the callback for reuse.
   
   console.log("Database connection ready");
-
+  
+  app.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
 
   app.use('/api', posts);
   app.use('/api', users);
@@ -47,10 +53,4 @@ app.use(express.static(distDir));
     console.log("ERROR: " + reason);
     res.status(code || 500).json({"error": message});
   }
-
-  app.all('/', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-   });
 
