@@ -38,6 +38,12 @@ module.exports.getUsers = (callback, limit) => {
 	Users.find(callback).limit(limit).sort({"userName": 1});
 }
 
+
+// Get users
+module.exports.getUserNames = (callback, limit) => {
+	Users.find(callback).select('userName -_id').limit(limit).sort({"userName": 1});
+}
+
 // Get User by id
 module.exports.getUserById = (id, callback) => {
 	Users.findById(id, callback);

@@ -10,7 +10,7 @@ router.get('/users', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.json(users);
+		res.status(200).json(users);
 		
 	});
 });
@@ -22,7 +22,7 @@ router.get('/users/id=:_id', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.json(user);
+		res.status(200).json(user);
 	});
 });
 
@@ -32,9 +32,21 @@ router.get('/users/username=:username', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.json(user);
+		res.status(200).json(user);
 	});
 });
+
+//Get an user by his username - Funciona
+router.get('/userNames', (req, res) => {
+	User.getUserNames( (err, usersNames) => {
+		if(err){
+			throw err;
+		}
+		res.status(200).json(usersNames);
+	});
+});
+
+
 
 // Add a new user - Funciona
 router.post('/users', (req, res) => {
@@ -44,7 +56,7 @@ router.post('/users', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.json(user);
+		res.status(200).json(user);
 	});
 });
 
@@ -56,7 +68,7 @@ router.put('/api/users/id=:_id', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.json(user);
+		res.status(200).json(user);
 	});
 });
 

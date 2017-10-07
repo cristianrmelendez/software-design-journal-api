@@ -13,7 +13,8 @@ router.get('/posts', (req, res) => {
 			console.log("No sirveee")
 			throw err;
 		}
-		res.json(posts);
+	
+		res.status(200).json(posts);
 		
 			
 	});
@@ -25,7 +26,7 @@ router.get('/posts/id=:_id', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.json(post);
+		res.status(200).json(post);
 	});
 });
 
@@ -35,7 +36,7 @@ router.get('/posts/userName=:userName', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.json(posts);
+		res.status(200).json(posts);
 	});
 });
 
@@ -86,22 +87,6 @@ router.post('/posts', function (req, res, next) {
 });
 
 
-
-
-// create a post // Funciona
-// router.post('/posts', (req, res) => {
-// 	var post = req.body;
-// 	console.log(post);
-
-// 	Posts.addPost(post, (err, post) => {
-// 		if(err){
-// 			throw err;
-// 		}
-// 		res.json(post);
-// 	});
-// });
-
-
 // edit a post // falta por verificar
 router.put('/posts/id=:_id', (req, res) => {
 	var id = req.params._id;
@@ -110,7 +95,7 @@ router.put('/posts/id=:_id', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.json(post);
+		res.status(200).json(post);
 	});
 });
 
@@ -121,7 +106,7 @@ router.delete('/posts/id=:_id', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.json(post);
+		res.status(200).json(post);
 	});
 });
 
