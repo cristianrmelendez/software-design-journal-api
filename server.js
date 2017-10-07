@@ -48,3 +48,9 @@ app.use(express.static(distDir));
     res.status(code || 500).json({"error": message});
   }
 
+  app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+   });
+
