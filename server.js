@@ -17,6 +17,8 @@ var db;
 // Connect to the database before starting the application server.
 var mongodbUri = 'mongodb://user:inso4116@ds121464.mlab.com:21464/inso4116-journal';
 
+mongoose.Promise = global.Promise;
+
 mongoose.connect(mongodbUri , {
     useMongoClient: true,
       }
