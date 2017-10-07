@@ -80,7 +80,7 @@ router.post('/posts', function (req, res, next) {
             } else if (!validPassword) {
                 //if password don't match
                 console.log("password dont match");
-                res.status(403).json({success: false, message: "User NOT authenticated"});
+                res.status(403).json({success: false, message: "Password do not match"});
             }
         }
     })
