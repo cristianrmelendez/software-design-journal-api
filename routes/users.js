@@ -54,7 +54,7 @@ router.post('/users', (req, res) => {
 	
 	User.addUser(user, (err, user) => {
 		if(err){
-			throw err;
+			res.status(503).json({success: false, message: "User already exist"});
 		}
 		res.status(200).json({success: true, message: "User Created", user: user});
 	});
