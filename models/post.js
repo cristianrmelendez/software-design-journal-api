@@ -24,7 +24,7 @@ const Posts = module.exports = mongoose.model('Posts', postSchema);
 
 // Get Post
 module.exports.getPosts = (callback, limit) => {
-	Posts.find(callback).limit(limit).sort({systemDate: 1});
+	Posts.find(callback).limit(limit).sort({systemDate: 'asc'});
 }
 
 // Get Post
