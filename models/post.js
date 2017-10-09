@@ -13,6 +13,10 @@ const postSchema = mongoose.Schema({
 	date: { 
 		type: String, 
 		required: true	 
+	},
+	systemDate:{
+		type: Date,
+		default: Date.now()
 	}
   });
 
@@ -20,7 +24,7 @@ const Posts = module.exports = mongoose.model('Posts', postSchema);
 
 // Get Post
 module.exports.getPosts = (callback, limit) => {
-	Posts.find(callback).limit(limit).sort({"date": -1});
+	Posts.find(callback).limit(limit).sort("-systemDate");
 }
 
 // Get Post
@@ -28,9 +32,9 @@ module.exports.getPostById = (id, callback) => {
 	Posts.findById(id, callback);
 }
 
-//Get Posts by user id
+//Get Posts by user Name
 module.exports.getPostsByUserName = (userName, callback) => {
-	Posts.find({"userName": userName}, callback);
+	Posts.find({"userName": userName}.sort("-systemDate"), callback);
 }
 
 // Add Post
