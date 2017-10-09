@@ -56,7 +56,9 @@ router.post('/users', (req, res) => {
 		if(err){
 			res.status(503).json({success: false, message: "User already exist"});
 		}
+		else{
 		res.status(200).json({success: true, message: "User Created", user: user});
+		}
 	});
 });
 
@@ -68,7 +70,9 @@ router.put('/api/users/id=:_id', (req, res) => {
 		if(err){
 			throw err;
 		}
+		else{
 		res.status(200).json({success: true, message: "User edited", user: user});
+		}
 	});
 });
 
