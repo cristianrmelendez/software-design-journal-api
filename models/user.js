@@ -5,7 +5,8 @@ var bcrypt = require('bcrypt-nodejs'); // Import Bcrypt Package
 const userSchema = mongoose.Schema({
 	userName:{
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	password:{
 		type: String,
@@ -28,8 +29,7 @@ userSchema.pre('save', function(next) {
 
 // Method to compare passwords in API (when user logs in)
 userSchema.methods.comparePassword = function(password) {
-	console.log("The password enter was: " + password );
-	console.log("The password enter was: " + this.password );
+	
     return bcrypt.compareSync(password, this.password); // Returns true if password matches, false if doesn't
 };
 

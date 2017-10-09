@@ -51,7 +51,7 @@ router.get('/userNames', (req, res) => {
 // Add a new user - Funciona
 router.post('/users', (req, res) => {
 	var user = req.body;
-	console.log("Entro aqui al route");
+	
 	User.addUser(user, (err, user) => {
 		if(err){
 			throw err;
