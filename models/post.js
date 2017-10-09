@@ -34,7 +34,7 @@ module.exports.getPostById = (id, callback) => {
 
 //Get Posts by user Name
 module.exports.getPostsByUserName = (userName, callback) => {
-	Posts.find({"userName": userName}.sort("-systemDate"), callback);
+	Posts.find({"userName": userName}.sort("systemDate"), callback);
 }
 
 // Add Post
