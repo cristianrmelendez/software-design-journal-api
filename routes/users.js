@@ -56,7 +56,7 @@ router.post('/users', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.status(200).json({success: true, message: "User created succesfully"});
+		res.status(200).json({success: true, message: "User Created", user: user});
 	});
 });
 
@@ -68,7 +68,7 @@ router.put('/api/users/id=:_id', (req, res) => {
 		if(err){
 			throw err;
 		}
-		res.status(200).json({success: true, message: "User edited succesfully"});
+		res.status(200).json({success: true, message: "User edited", user: user});
 	});
 });
 
