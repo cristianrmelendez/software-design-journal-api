@@ -10,7 +10,7 @@ const User = require('../models/user');
 router.get('/posts', (req, res) => {
 	Posts.getPosts((err, posts) => {
 		if(err){
-			console.log("No sirveee")
+			
 			throw err;
 		}
 	
@@ -32,8 +32,10 @@ router.get('/posts/id=:_id', (req, res) => {
 
 // get all the posts of a user by his Name // Funciona
 router.get('/posts/userName=:userName', (req, res) => {
+	console.log(req.params.userName);
 	Posts.getPostsByUserName(req.params.userName, (err, posts) => {
 		if(err){
+			console.log("tiro un error");
 			throw err;
 		}
 		res.status(200).json(posts);
@@ -77,7 +79,7 @@ router.post('/posts', function (req, res, next) {
  
             } else if (!validPassword) {
                 //if password don't match
-                console.log("password dont match");
+                
                 res.status(403).json({success: false, message: "Password do not match"});
             }
         }

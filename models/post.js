@@ -34,6 +34,7 @@ module.exports.getPostById = (id, callback) => {
 
 //Get Posts by user Name
 module.exports.getPostsByUserName = (userName, callback) => {
+	console.log("Llego esto al model = " + userName);
 	Posts.find({"userName": userName}.sort("systemDate"), callback);
 }
 
